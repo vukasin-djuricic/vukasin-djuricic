@@ -1,1 +1,1 @@
-[![](https://raw.githubusercontent.com/jasonlong/jasonlong/main/chat.svg)](https://bsky.app/profile/jasonlong.me)
+[![](https://raw.githubusercontent.com/vukasin-djuricic/vukasin-djuricic/main/chat.svg)](https://github.com/vukasin-djuricic)
