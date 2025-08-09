@@ -73,7 +73,7 @@
   <!-- Treća poruka -->
   <g id="group3" class="message-group">
     <rect x="10" y="90" width="370" height="30" rx="15" fill="#E1E1E1"/>
-    <text x="25" y="110" font-family="Arial, Helvetica, sans-serif" font-size="14">I enjoy building things with C#, Java, and OpenGL.</text>
+    <text x="25" y="110" font-family="Arial, Helvetica, sans-serif" font-size="14">I enjoy building things with Java, Python and OpenGL.</text>
   </g>
   
   <!-- Indikator kucanja pre četvrte poruke -->
