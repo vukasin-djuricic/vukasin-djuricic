@@ -1,205 +1,93 @@
-<!DOCTYPE html>
-<svg
-  width="550"
-  height="400"
-  viewBox="0 0 550 400"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
->
+<svg width="450" height="230" xmlns="http://www.w3.org/2000/svg">
   <style>
-    rect {
-      fill: #e9e9eb;
-    }
-    a {
-      fill: #0079ff;
-    }
-    text {
-      fill: #242424;
-      font-size: 18px;
-      font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI',
-        'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-        'Helvetica Neue', 'sans-serif';
-    }
-
-    .typing-1, .msg-1, .typing-2, .msg-2, .typing-3, .msg-3, .typing-4, .msg-4, .typing-5, .msg-5 {
-      animation-duration: 12s;
-      animation-iteration-count: infinite;
-    }
-
-    .typing-1 {
+    /* Sakrij sve elemente poruka na početku */
+    .message-group {
       opacity: 0;
-      animation-name: fade-in-out;
-      animation-delay: 0s;
+      animation: fadeIn 0.5s forwards;
     }
 
-    .msg-1 {
-      animation-name: msg-1-anim;
-      opacity: 0;
-      animation-fill-mode: forwards;
-    }
-
-    .typing-2 {
-      opacity: 0;
-      animation-name: fade-in-out;
-      animation-delay: 2s;
-    }
-
-    .msg-2 {
-      animation-name: msg-2-anim;
-      opacity: 0;
-      animation-fill-mode: forwards;
-    }
-
-    .typing-3 {
-      opacity: 0;
-      animation-name: fade-in-out;
-      animation-delay: 4s;
-    }
-
-    .msg-3 {
-      animation-name: msg-3-anim;
-      opacity: 0;
-      animation-fill-mode: forwards;
-    }
-    
-    .typing-4 {
-      opacity: 0;
-      animation-name: fade-in-out;
-      animation-delay: 7s;
-    }
-
-    .msg-4 {
-      animation-name: msg-4-anim;
-      opacity: 0;
-      animation-fill-mode: forwards;
-    }
-
-    .typing-5 {
-        opacity: 0;
-        animation-name: fade-in-out;
-        animation-delay: 10s;
-    }
-
-    .msg-5 {
-        animation-name: msg-5-anim;
-        opacity: 0;
-        animation-fill-mode: forwards;
-    }
-
-
-    @keyframes fade-in-out {
-      0%, 15%, 100% { opacity: 0; }
-      20%, 80% { opacity: 1; }
-    }
-
-    @keyframes msg-1-anim {
-      0%, 16.6% { opacity: 0; transform: translate(10px, 5px); }
-      18.6%, 100% { opacity: 1; transform: translate(10px, 0); }
-    }
-
-    @keyframes msg-2-anim {
-      0%, 33.3% { opacity: 0; transform: translate(10px, 53px); }
-      35.3%, 100% { opacity: 1; transform: translate(10px, 48px); }
-    }
-    
-    @keyframes msg-3-anim {
-      0%, 50% { opacity: 0; transform: translate(10px, 125px); }
-      52%, 100% { opacity: 1; transform: translate(10px, 120px); }
-    }
-    
-    @keyframes msg-4-anim {
-      0%, 66.6% { opacity: 0; transform: translate(10px, 197px); }
-      68.6%, 100% { opacity: 1; transform: translate(10px, 192px); }
-    }
-
-    @keyframes msg-5-anim {
-      0%, 83.3% { opacity: 0; transform: translate(10px, 269px); }
-      85.3%, 100% { opacity: 1; transform: translate(10px, 264px); }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      rect {
-        fill: #3b3b3d;
-      }
-      text {
-        fill: #dcdcdc;
-      }
-      a {
-        fill: #0c82f9;
+    /* Definicija animacije za postepeno pojavljivanje */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
       }
     }
+
+    /* Definicija animacije za efekat kucanja */
+    .typing-indicator circle {
+      animation: bounce 1.2s infinite;
+    }
+    
+    .typing-indicator circle:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-indicator circle:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    
+    @keyframes bounce {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-4px); }
+    }
+
+    /* Postavljanje kašnjenja za svaku poruku da se pojave sekvencijalno */
+    #group1 { animation-delay: 1s; } 
+    #typing1 { animation-delay: 2.5s; }
+    #group2 { animation-delay: 4s; }
+    #typing2 { animation-delay: 5.5s; }
+    #group3 { animation-delay: 7s; }
+    #typing3 { animation-delay: 8.5s; }
+    #group4 { animation-delay: 10s; }
+
   </style>
 
-  <!-- typing 1 -->
-  <g transform="translate(10, 0)" class="typing-1">
-    <rect x="8.27" width="69.72" height="42" rx="20.97" />
-    <circle cx="27.47" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite" /></circle>
-    <circle cx="42.84" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" begin="0.2s" repeatCount="indefinite" /></circle>
-    <circle cx="58.20" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" begin="0.4s" repeatCount="indefinite" /></circle>
+  <!-- Prva poruka -->
+  <g id="group1" class="message-group">
+    <rect x="10" y="10" width="180" height="30" rx="15" fill="#E1E1E1"/>
+    <text x="25" y="30" font-family="Arial, Helvetica, sans-serif" font-size="14">Hey! I'm Vukasin 👋</text>
   </g>
 
-  <!-- Hi, I'm Vukasin -->
-  <g class="msg-1">
-    <rect width="180" height="42" rx="18" />
-    <text x="15" y="27">Hi, I'm Vukasin</text>
+  <!-- Indikator kucanja pre druge poruke -->
+  <g id="typing1" class="message-group typing-indicator">
+      <rect x="10" y="50" width="50" height="30" rx="15" fill="#E1E1E1"/>
+      <circle cx="23" cy="65" r="2.5" fill="#888"/>
+      <circle cx="33" cy="65" r="2.5" fill="#888"/>
+      <circle cx="43" cy="65" r="2.5" fill="#888"/>
   </g>
 
-  <!-- typing 2 -->
-  <g transform="translate(10, 48)" class="typing-2">
-    <rect x="8.27" width="69.72" height="42" rx="20.97" />
-    <circle cx="27.47" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite" /></circle>
-    <circle cx="42.84" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" begin="0.2s" repeatCount="indefinite" /></circle>
-    <circle cx="58.20" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" begin="0.4s" repeatCount="indefinite" /></circle>
-  </g>
-
-  <!-- Message about studying -->
-  <g class="msg-2">
-    <rect width="450" height="66" rx="18" />
-    <text x="15" y="27">I'm a 3rd-year student at the Faculty of Computing</text>
-    <text x="15" y="50">in Belgrade.</text>
-  </g>
-
-  <!-- typing 3 -->
-  <g transform="translate(10, 120)" class="typing-3">
-     <rect x="8.27" width="69.72" height="42" rx="20.97" />
-    <circle cx="27.47" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite" /></circle>
-    <circle cx="42.84" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" begin="0.2s" repeatCount="indefinite" /></circle>
-    <circle cx="58.20" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" begin="0.4s" repeatCount="indefinite" /></circle>
+  <!-- Druga poruka -->
+  <g id="group2" class="message-group">
+    <rect x="10" y="50" width="390" height="30" rx="15" fill="#E1E1E1"/>
+    <text x="25" y="70" font-family="Arial, Helvetica, sans-serif" font-size="14">A 3rd-year Computer Science student in Belgrade, Serbia.</text>
   </g>
   
-  <!-- Message about major and days studied -->
-   <g class="msg-3">
-    <rect width="420" height="66" rx="18" />
-    <text x="15" y="27">I've been studying Computer Science at RAF for</text>
-    <text x="15" y="50">{daysStudied} days now.</text>
+  <!-- Indikator kucanja pre treće poruke -->
+  <g id="typing2" class="message-group typing-indicator">
+      <rect x="10" y="90" width="50" height="30" rx="15" fill="#E1E1E1"/>
+      <circle cx="23" cy="105" r="2.5" fill="#888"/>
+      <circle cx="33" cy="105" r="2.5" fill="#888"/>
+      <circle cx="43" cy="105" r="2.5" fill="#888"/>
   </g>
 
-  <!-- typing 4 -->
-  <g transform="translate(10, 192)" class="typing-4">
-     <rect x="8.27" width="69.72" height="42" rx="20.97" />
-    <circle cx="27.47" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite" /></circle>
-    <circle cx="42.84" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" begin="0.2s" repeatCount="indefinite" /></circle>
-    <circle cx="58.20" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" begin="0.4s" repeatCount="indefinite" /></circle>
+  <!-- Treća poruka -->
+  <g id="group3" class="message-group">
+    <rect x="10" y="90" width="370" height="30" rx="15" fill="#E1E1E1"/>
+    <text x="25" y="110" font-family="Arial, Helvetica, sans-serif" font-size="14">I enjoy building things with C#, Java, and OpenGL.</text>
+  </g>
+  
+  <!-- Indikator kucanja pre četvrte poruke -->
+  <g id="typing3" class="message-group typing-indicator">
+      <rect x="10" y="130" width="50" height="30" rx="15" fill="#E1E1E1"/>
+      <circle cx="23" cy="145" r="2.5" fill="#888"/>
+      <circle cx="33" cy="145" r="2.5" fill="#888"/>
+      <circle cx="43" cy="145" r="2.5" fill="#888"/>
   </g>
 
-  <!-- Favorite project -->
-  <g class="msg-4">
-    <rect width="450" height="42" rx="18" />
-    <text x="15" y="27">My favorite project is in Geometric Algorithms.</text>
+  <!-- Četvrta poruka -->
+  <g id="group4" class="message-group">
+    <rect x="10" y="130" width="350" height="30" rx="15" fill="#E1E1E1"/>
+    <text x="25" y="150" font-family="Arial, Helvetica, sans-serif" font-size="14">Feel free to check out my projects down below!</text>
   </g>
 
-  <!-- typing 5 -->
-   <g transform="translate(10, 264)" class="typing-5">
-     <rect x="8.27" width="69.72" height="42" rx="20.97" />
-    <circle cx="27.47" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite" /></circle>
-    <circle cx="42.84" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" begin="0.2s" repeatCount="indefinite" /></circle>
-    <circle cx="58.20" cy="20.97" r="5.02" fill="#999999"><animate attributeName="opacity" values="0.5;1;0.5" dur="1s" begin="0.4s" repeatCount="indefinite" /></circle>
-  </g>
-
-  <!-- Greeting -->
-  <g class="msg-5">
-    <rect width="230" height="42" rx="18" />
-    <text x="15" y="27">Thanks for stopping by! 👋🏻</text>
-  </g>
 </svg>
