@@ -8,6 +8,10 @@ const studyStartDate = new Date(2022, 9, 1)
 
 const daysStudied = differenceInDays(today, studyStartDate) // Računamo razliku u danima
 
+// LeetCode streak (starts at 1 on March 16, 2026)
+const streakStartDate = new Date(2026, 2, 16)
+const leetcodeStreak = differenceInDays(today, streakStartDate) + 1
+
 fs.readFile('template.svg', 'utf-8', (error, data) => {
   if (error) {
     console.error('Error reading template.svg file:', error)
@@ -16,6 +20,7 @@ fs.readFile('template.svg', 'utf-8', (error, data) => {
 
   // Zameni placeholder sa izračunatim brojem dana
   data = data.replace('{daysStudied}', daysStudied)
+  data = data.replace('{leetcodeStreak}', leetcodeStreak)
 
   fs.writeFile('chat.svg', data, (err) => {
     if (err) {

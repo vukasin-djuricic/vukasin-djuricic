@@ -59,7 +59,7 @@
   <!-- Druga poruka -->
   <g id="group2" class="message-group">
     <rect x="10" y="50" width="390" height="30" rx="15" fill="#E1E1E1"/>
-    <text x="25" y="70" font-family="Arial, Helvetica, sans-serif" font-size="14">A 3rd-year Computer Science student in Belgrade, Serbia.</text>
+    <text x="25" y="70" font-family="Arial, Helvetica, sans-serif" font-size="14">A 4th-year Computer Science student in Belgrade, Serbia.</text>
   </g>
   
   <!-- Indikator kucanja pre treće poruke -->
@@ -72,8 +72,8 @@
 
   <!-- Treća poruka -->
   <g id="group3" class="message-group">
-    <rect x="10" y="90" width="370" height="30" rx="15" fill="#E1E1E1"/>
-    <text x="25" y="110" font-family="Arial, Helvetica, sans-serif" font-size="14">I enjoy building things with Java, Python and OpenGL.</text>
+    <rect x="10" y="90" width="270" height="30" rx="15" fill="#E1E1E1"/>
+    <text x="25" y="110" font-family="Arial, Helvetica, sans-serif" font-size="14">My LeetCode streak is {leetcodeStreak} days. 🔥</text>
   </g>
   
   <!-- Indikator kucanja pre četvrte poruke -->
